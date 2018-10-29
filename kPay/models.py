@@ -45,9 +45,12 @@ class Worker(AbstractUser):
     ci = models.CharField(max_length=8, primary_key=True, unique=True)
     tlf = models.CharField(max_length=15, blank=True, null=True)
     birthdate = models.DateField(null=True)
+    city = models.CharField( max_length=50, blank=True, null=True)
+    state = models.CharField(max_length=50, blank=True, null=True)
+    country = models.CharField(max_length=50, blank=True, null=True)
 
     commerce = models.ForeignKey(
-        Commerce, related_name='commerce', on_delete=models.CASCADE, null=True)
+        Commerce, related_name='commerce', on_delete=models.CASCADE, blank=True,null=True)
 
     REQUIRED_FIELDS = ['email', 'ci', 'commerce']
 
